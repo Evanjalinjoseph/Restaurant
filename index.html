@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sizzle & Spice Bistro</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: url('img1.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    .menu-toggle {
+      cursor: pointer;
+    }
+
+    #menu {
+      height: 0;
+      overflow: hidden;
+      transition: height 0.5s ease-in-out;
+      background-image: linear-gradient(to right, pink 0%, yellow 100%);
+      padding: 20px;
+      position: fixed;
+      bottom: -100vh;
+      width: 100%;
+      text-align: center;
+    }
+
+    #menu.active {
+      height: calc(100vh - 50px);
+      bottom: 0;
+      transition: bottom 0.5s ease-in-out;
+    }
+
+    main {
+      padding: 20px;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      height: 60vh;
+      margin-top: 5%;
+      margin-left: 5%;
+    }
+
+    section {
+      margin-bottom: 30px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    footer {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .menu-list {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .menu-item {
+      margin: 0 10px;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.5);
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .menu-item img {
+      width: 210px;
+      height: 210px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .order-button {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+  </style>
+</head> 
+<body>
+    <header>
+      <h1>Sizzle & Spice Bistro</h1>
+    </header>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#" class="menu-toggle">Menu</a>
+      <a href="#">Restaurant</a>
+      <a href="#">Testimonials</a>
+      <a href="#">Contact Us</a>
+    </nav>
+    <main>
+      <section>
+        <h2>Crafting Culinary Delights</h2>
+        <p>Ignite Your Taste Buds with Every Bite</p>
+      </section>
+    </main>
+    <div id="menu">
+        <button class="back-button" onclick="goToHome()">Back to Home</button>
+        <h2>Menu</h2>
+        <div class="menu-list">
+          <div class="menu-item">
+            <img src="img4.jpg" alt="Burger">
+            <h3>BURGER</h3>
+            <p>Savor every bite of our juicy burger, a taste of pure satisfaction.</p>
+          </div>
+          <div class="menu-item">
+            <img src="img2.jpg" alt="Pizza">
+            <h3>PIZZA</h3>
+            <p>Experience pizza perfection with every slice, a true taste of Italy.</p>
+          </div>
+          <div class="menu-item">
+            <img src="img3.jpg" alt="Pasta"> <h3>PASTA</h3>
+            <p>Indulge in the rich flavors of our pasta, a culinary journey to remember.</p>
+          </div>
+        </div>
+        <button style="margin-top:20vh;" class="order-button">Order Now</button>
+    </div>
+  
+    <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menu = document.getElementById('menu');
+  
+    menuToggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+
+    function goToHome() {
+      window.scrollTo(0, 0);
+      menu.classList.remove('active'); 
+    }
+    </script>
+  </body>
+</html>
